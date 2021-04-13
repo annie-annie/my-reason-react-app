@@ -1,0 +1,13 @@
+name: test 
+on:
+  # Manual Github based trigger
+  workflow_dispatch:
+    inputs:
+      hi:
+        description: 'fil me in you have to '
+        required: true
+        default: 'noooo'
+      bool:
+        description: 'type anything in here'
+  pull_request:
+    types: [synchronize]
