@@ -1,6 +1,5 @@
 name: test 
 on:
-  # Manual Github based trigger
   workflow_dispatch:
     inputs:
       hi:
