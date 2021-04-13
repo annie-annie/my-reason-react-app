@@ -11,3 +11,4 @@ jobs:
         echo "${GITHUB_REF#refs/heads/}"
         echo "${GITHUB_HEAD_REF}"
         echo "YAY"
+        echo "HI"
