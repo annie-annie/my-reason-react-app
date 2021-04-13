@@ -1,20 +1,11 @@
 name: test 
 on: 
-  workflow_dispatch:
-    inputs:
-      logLevel:
-        description: 'Log level'     
-        required: true
-        default: 'warning'
-      tags:
-        description: 'Test scenario tags'  
   pull_request:
-    types: [synchronize]
+    types: [closed, synchronize]
 jobs:
   printInputs:
     runs-on: ubuntu-latest
     steps:
     - run: |
-        echo "Log level: ${{ github.event.inputs.logLevel }}"
-        echo "Tags: ${{ github.event.inputs.tags }}" 
+        echo "${GITHUB_REF#refs/heads/}"
         echo "YAY"
