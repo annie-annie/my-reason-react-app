@@ -1,5 +1,6 @@
 name: test 
 on: 
+  push:
   pull_request:
     types: [closed, synchronize]
 jobs:
@@ -8,4 +9,5 @@ jobs:
     steps:
     - run: |
         echo "${GITHUB_REF#refs/heads/}"
+        echo "${GITHUB_HEAD_REF}"
         echo "YAY"
