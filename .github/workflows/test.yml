@@ -1,12 +1,19 @@
 name: test 
-on:
+on: 
   workflow_dispatch:
     inputs:
-      hi:
-        description: 'fil me in you have to '
+      logLevel:
+        description: 'Log level'     
         required: true
-        default: 'noooo'
-      bool:
-        description: 'type anything in here'
+        default: 'warning'
+      tags:
+        description: 'Test scenario tags'  
   pull_request:
     types: [synchronize]
+jobs:
+  printInputs:
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        echo "Log level: ${{ github.event.inputs.logLevel }}"
+        echo "Tags: ${{ github.event.inputs.tags }}" 
