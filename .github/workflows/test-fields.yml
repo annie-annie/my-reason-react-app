@@ -1,0 +1,15 @@
+name: test
+on:
+  workflow_dispatch:
+    workflow_dispatch:
+    inputs:
+      branchUI:
+        description: 'UI branch'
+        required: true
+        default: 'dev'
+jobs:
+  printInputs:
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        echo "The branch is : ${{ github.event.inputs.branchUI }}"
