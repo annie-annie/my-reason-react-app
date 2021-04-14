@@ -1,12 +1,12 @@
-name: test 
-on: 
+name: test
+on:
   push:
   pull_request:
     types: [closed, synchronize]
 jobs:
   printInputsPush:
     runs-on: ubuntu-latest
-    if: github.event.action = push
+    if: ${{ github.event.action == 'push' }}
     steps:
     - run: |
         echo "Pushing"
