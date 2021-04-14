@@ -9,7 +9,7 @@ jobs:
     # if: ${{ github.event.action == 'push' }}
     steps:
     - run: |
-        echo "action is ${github.event.action}"
+        echo "action is ${{github.event.action}"
         echo "GITHUB_REF  is ${GITHUB_REF}"
         echo "GITHUB_HEAD_REF is ${GITHUB_HEAD_REF}"
         echo "YAY"
