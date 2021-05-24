@@ -6,10 +6,16 @@ on:
   push:
 jobs:
   printBranch:
-    env:
-      branch: ${{ GITHUB_HEAD_REF ||  GITHUB_REF#refs/heads/ }}
     runs-on: ubuntu-latest
     steps:
-    - run: |
-        echo "The ref is : ${ GITHUB_REF#refs/heads/ }"
-        echo "The head ref is : ${ GITHUB_HEAD_REF}"
+      - name: Extract branch name no pr
+        if: github.event_name != 'pull_request'
+        shell: bash
+        run: echo "::set-env name=BRANCH_NAME::$(echo ${GITHUB_REF#refs/heads/})"
+
+      - name: Extract branch name on pr
+        if: github.event_name == 'pull_request'
+        run: echo "::set-env name=BRANCH_NAME::$(echo ${GITHUB_HEAD_REF})"
+
+      - name: Print branch name
+        run: echo $BRANCH_NAME
