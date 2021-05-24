@@ -12,4 +12,4 @@ jobs:
     steps:
     - run: |
         echo "The ref is : ${ GITHUB_REF#refs/heads/ }"
-        echo "The ref is : ${ GITHUB_HEAD_REF}"
+        echo "The head ref is : ${ GITHUB_HEAD_REF}"
